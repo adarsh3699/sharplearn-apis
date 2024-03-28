@@ -62,17 +62,14 @@ app.get("/referral", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 app.get("/", function (req, res) {
   res.send("Hello World");
 });
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(
-    "mongodb+srv://adarsh3699:adarsh123@cluster1.neekomj.mongodb.net/sharplearn" ||
-      "mongodb://localhost:27017/"
-  )
+  .connect(process.env.MONGO_DB_URI || "mongodb://localhost:27017/sharplearn")
   .then(() =>
     app.listen(PORT, () => {
       console.log(`Server is running at port ${PORT}`);
