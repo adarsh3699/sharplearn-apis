@@ -62,7 +62,7 @@ app.get("/referral", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 app.get("/", function (req, res) {
   res.send("Hello World");
